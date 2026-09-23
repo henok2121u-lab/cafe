@@ -2,7 +2,6 @@ import Link from "next/link";
 import { getCafeSettings } from "@/lib/data/settings";
 
 const NAV_LINKS = [
-  { href: "/", label: "Home" },
   { href: "/menu", label: "Menu" },
   { href: "/gallery", label: "Gallery" },
   { href: "/location", label: "Location" },
@@ -17,16 +16,19 @@ export default async function PublicLayout({ children }: LayoutProps<"/">) {
   return (
     <>
       <header className="sticky top-0 z-10 border-b border-cafe-border bg-cafe-surface/90 backdrop-blur">
-        <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-          <Link href="/" className="text-lg font-semibold tracking-tight text-cafe-primary">
+        <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4">
+          <Link
+            href="/"
+            className="min-w-0 shrink truncate text-base font-semibold tracking-tight text-cafe-primary sm:text-lg"
+          >
             {settings.name}
           </Link>
-          <nav className="flex gap-6 text-sm font-medium">
+          <nav className="flex shrink-0 gap-3 text-sm font-medium sm:gap-6">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-foreground/80 transition-colors hover:text-cafe-primary"
+                className="min-h-11 py-2.5 text-foreground/80 transition-colors hover:text-cafe-primary"
               >
                 {link.label}
               </Link>
