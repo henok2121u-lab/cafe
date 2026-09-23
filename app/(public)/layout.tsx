@@ -19,7 +19,7 @@ export default async function PublicLayout({ children }: LayoutProps<"/">) {
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4">
           <Link
             href="/"
-            className="min-w-0 shrink truncate text-base font-semibold tracking-tight text-cafe-primary sm:text-lg"
+            className="min-w-0 shrink truncate font-display text-xl font-semibold tracking-tight text-cafe-primary sm:text-2xl"
           >
             {settings.name}
           </Link>
@@ -41,7 +41,7 @@ export default async function PublicLayout({ children }: LayoutProps<"/">) {
 
       <footer className="border-t border-cafe-border bg-cafe-surface">
         <div className="mx-auto max-w-5xl px-6 py-8 text-sm text-cafe-muted">
-          <p className="font-medium text-foreground">{settings.name}</p>
+          <p className="font-display text-lg text-foreground">{settings.name}</p>
           {settings.address && <p className="mt-1">{settings.address}</p>}
           <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
             {settings.phone && <a href={`tel:${settings.phone}`} className="hover:text-cafe-primary">{settings.phone}</a>}

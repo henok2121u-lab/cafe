@@ -13,10 +13,10 @@ export default async function LocationPage() {
   const hours = (settings.openingHours ?? null) as OpeningHours | null;
 
   return (
-    <div className="mx-auto max-w-3xl px-6 py-16">
-      <h1 className="text-3xl font-semibold text-foreground">Visit Us</h1>
+    <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6 sm:py-16">
+      <h1 className="font-display text-3xl font-semibold text-foreground sm:text-4xl">Visit Us</h1>
 
-      <div className="mt-10 grid gap-10 sm:grid-cols-2">
+      <div className="mt-8 grid gap-8 sm:mt-10 sm:grid-cols-2 sm:gap-10">
         <div>
           <h2 className="text-sm font-semibold uppercase tracking-wide text-cafe-muted">Contact</h2>
           <dl className="mt-3 space-y-2 text-foreground">
