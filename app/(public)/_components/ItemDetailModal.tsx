@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { formatPrice } from "@/lib/format";
 import { ImagePlaceholder } from "./ImagePlaceholder";
+import { useCart } from "./CartContext";
 
 export type MenuItemView = {
   id: string;
@@ -14,6 +15,9 @@ export type MenuItemView = {
 };
 
 export function ItemDetailModal({ item, onClose }: { item: MenuItemView; onClose: () => void }) {
+  const { addItem } = useCart();
+  const [added, setAdded] = useState(false);
+
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") onClose();
@@ -67,6 +71,20 @@ export function ItemDetailModal({ item, onClose }: { item: MenuItemView; onClose
             </p>
           )}
           {item.description && <p className="mt-4 text-base text-cafe-muted">{item.description}</p>}
+
+          {item.isAvailable && (
+            <button
+              type="button"
+              onClick={() => {
+                addItem({ menuItemId: item.id, name: item.name, price: item.price, imageUrl: item.imageUrl });
+                setAdded(true);
+                setTimeout(() => setAdded(false), 1500);
+              }}
+              className="mt-5 w-full rounded-full bg-cafe-primary px-6 py-3 text-base font-semibold text-cafe-primary-foreground transition-opacity hover:opacity-90"
+            >
+              {added ? "Added ✓" : "Add to Order"}
+            </button>
+          )}
         </div>
       </div>
     </div>

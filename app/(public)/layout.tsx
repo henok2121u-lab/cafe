@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { getCafeSettings } from "@/lib/data/settings";
+import { CartProvider } from "./_components/CartContext";
+import { CartButton } from "./_components/CartButton";
 
 const NAV_LINKS = [
   { href: "/menu", label: "Menu" },
@@ -14,7 +16,7 @@ export default async function PublicLayout({ children }: LayoutProps<"/">) {
   const settings = await getCafeSettings();
 
   return (
-    <>
+    <CartProvider>
       <header className="sticky top-0 z-10 border-b border-cafe-border bg-cafe-surface/90 backdrop-blur">
         <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4">
           <Link
@@ -59,6 +61,8 @@ export default async function PublicLayout({ children }: LayoutProps<"/">) {
           </div>
         </div>
       </footer>
-    </>
+
+      <CartButton />
+    </CartProvider>
   );
 }

@@ -6,14 +6,16 @@ import { db } from "@/lib/db";
 export const dynamic = "force-dynamic";
 
 export default async function AdminDashboardPage() {
-  const [categoryCount, itemCount, unavailableCount, galleryCount] = await Promise.all([
+  const [categoryCount, itemCount, unavailableCount, galleryCount, activeOrderCount] = await Promise.all([
     db.category.count(),
     db.menuItem.count(),
     db.menuItem.count({ where: { isAvailable: false } }),
     db.galleryImage.count(),
+    db.order.count({ where: { status: { in: ["PENDING", "PREPARING", "READY"] } } }),
   ]);
 
   const stats = [
+    { label: "Active Orders", value: activeOrderCount, href: "/admin/orders" },
     { label: "Categories", value: categoryCount, href: "/admin/categories" },
     { label: "Menu Items", value: itemCount, href: "/admin/menu-items" },
     { label: "Unavailable Items", value: unavailableCount, href: "/admin/menu-items" },
