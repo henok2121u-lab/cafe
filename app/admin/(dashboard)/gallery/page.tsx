@@ -27,7 +27,7 @@ export default async function AdminGalleryPage(props: PageProps<"/admin/gallery"
             type="file"
             accept="image/jpeg,image/png,image/webp"
             required
-            className="mt-1 block text-sm"
+            className="mt-1 block text-sm text-cafe-muted file:mr-3 file:cursor-pointer file:rounded-md file:border-0 file:bg-cafe-primary file:px-4 file:py-2 file:text-sm file:font-semibold file:text-cafe-primary-foreground hover:file:opacity-90"
           />
         </div>
         <div className="flex-1">

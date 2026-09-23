@@ -97,17 +97,24 @@ export function MenuItemForm({
         <label htmlFor="image" className="block text-sm font-medium text-foreground">
           Photo {item?.imageUrl && "(replace)"}
         </label>
-        {item?.imageUrl && (
-          // eslint-disable-next-line @next/next/no-img-element -- runtime-served upload, not a build-time static asset
-          <img src={item.imageUrl} alt="" className="mt-2 h-24 w-24 rounded-md object-cover" />
-        )}
-        <input
-          id="image"
-          name="image"
-          type="file"
-          accept="image/jpeg,image/png,image/webp"
-          className="mt-2 block w-full text-sm"
-        />
+        <div className="mt-2 flex items-center gap-4">
+          {item?.imageUrl && (
+            // eslint-disable-next-line @next/next/no-img-element -- runtime-served upload, not a build-time static asset
+            <img
+              src={item.imageUrl}
+              alt=""
+              className="h-16 w-16 shrink-0 rounded-md border border-cafe-border object-cover"
+            />
+          )}
+          <input
+            id="image"
+            name="image"
+            type="file"
+            accept="image/jpeg,image/png,image/webp"
+            className="block w-full text-sm text-cafe-muted file:mr-4 file:cursor-pointer file:rounded-md file:border-0 file:bg-cafe-primary file:px-4 file:py-2 file:text-sm file:font-semibold file:text-cafe-primary-foreground hover:file:opacity-90"
+          />
+        </div>
+        <p className="mt-1 text-xs text-cafe-muted">JPEG, PNG, or WEBP — up to 5MB.</p>
       </div>
 
       <div className="flex items-center gap-2">
