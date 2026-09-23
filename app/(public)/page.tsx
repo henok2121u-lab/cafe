@@ -59,13 +59,13 @@ export default async function HomePage() {
                   <img src={item.imageUrl} alt="" className="aspect-square w-full object-cover" />
                 )}
                 <div className="p-3 sm:p-4">
-                  <h3 className="font-medium text-foreground">{item.name}</h3>
+                  <h3 className="text-base font-semibold text-foreground sm:text-lg">{item.name}</h3>
                   {item.description && (
-                    <p className="mt-1 line-clamp-2 text-xs text-cafe-muted sm:text-sm">
-                      {item.description}
-                    </p>
+                    <p className="mt-1 line-clamp-2 text-sm text-cafe-muted">{item.description}</p>
                   )}
-                  <p className="mt-2 font-semibold text-cafe-accent">{formatPrice(item.price)}</p>
+                  <p className="mt-2 text-base font-bold text-cafe-accent sm:text-lg">
+                    {formatPrice(item.price)}
+                  </p>
                 </div>
               </div>
             ))}

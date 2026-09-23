@@ -35,7 +35,7 @@ export function MenuBrowser({ categories }: { categories: MenuCategoryView[] }) 
                 key={category.id}
                 type="button"
                 onClick={() => setActiveId(category.id)}
-                className={`shrink-0 rounded-full px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors ${
+                className={`shrink-0 rounded-full px-4 py-2 text-base font-medium whitespace-nowrap transition-colors ${
                   isActive
                     ? "bg-cafe-primary text-cafe-primary-foreground"
                     : "border border-cafe-border text-foreground/80 hover:border-cafe-primary hover:text-cafe-primary"
@@ -81,11 +81,11 @@ export function MenuBrowser({ categories }: { categories: MenuCategoryView[] }) 
               )}
             </div>
             <div className="p-3 sm:p-4">
-              <h3 className="font-medium text-foreground">{item.name}</h3>
+              <h3 className="text-base font-semibold text-foreground sm:text-lg">{item.name}</h3>
               {item.description && (
-                <p className="mt-1 line-clamp-2 text-xs text-cafe-muted">{item.description}</p>
+                <p className="mt-1 line-clamp-2 text-sm text-cafe-muted">{item.description}</p>
               )}
-              <p className="mt-2 font-semibold text-cafe-accent">{formatPrice(item.price)}</p>
+              <p className="mt-2 text-base font-bold text-cafe-accent sm:text-lg">{formatPrice(item.price)}</p>
             </div>
           </article>
         ))}

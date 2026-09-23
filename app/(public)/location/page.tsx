@@ -41,7 +41,7 @@ export default async function LocationPage() {
         {hours && (
           <div>
             <h2 className="text-sm font-semibold uppercase tracking-wide text-cafe-muted">Opening Hours</h2>
-            <dl className="mt-3 space-y-1 text-sm">
+            <dl className="mt-3 space-y-1.5 text-base">
               {DAY_ORDER.filter((day) => hours[day]).map((day) => (
                 <div key={day} className="flex justify-between gap-4 text-foreground">
                   <dt className="text-cafe-muted">{dayLabel(day)}</dt>

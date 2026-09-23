@@ -40,7 +40,7 @@ export default async function PublicLayout({ children }: LayoutProps<"/">) {
       <main className="flex-1">{children}</main>
 
       <footer className="border-t border-cafe-border bg-cafe-surface">
-        <div className="mx-auto max-w-5xl px-6 py-8 text-sm text-cafe-muted">
+        <div className="mx-auto max-w-5xl px-6 py-8 text-base text-cafe-muted">
           <p className="font-display text-lg text-foreground">{settings.name}</p>
           {settings.address && <p className="mt-1">{settings.address}</p>}
           <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
