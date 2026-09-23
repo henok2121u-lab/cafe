@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { formatPrice } from "@/lib/format";
 
 type MenuItemView = {
   id: string;
@@ -16,8 +17,6 @@ type MenuCategoryView = {
   name: string;
   items: MenuItemView[];
 };
-
-const currencyFormatter = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
 
 export function MenuBrowser({ categories }: { categories: MenuCategoryView[] }) {
   const [activeId, setActiveId] = useState(categories[0]?.id);
@@ -86,7 +85,7 @@ export function MenuBrowser({ categories }: { categories: MenuCategoryView[] }) 
               {item.description && (
                 <p className="mt-1 line-clamp-2 text-xs text-cafe-muted">{item.description}</p>
               )}
-              <p className="mt-2 font-semibold text-cafe-accent">{currencyFormatter.format(item.price)}</p>
+              <p className="mt-2 font-semibold text-cafe-accent">{formatPrice(item.price)}</p>
             </div>
           </article>
         ))}
