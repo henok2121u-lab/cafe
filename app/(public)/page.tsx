@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { getCafeSettings } from "@/lib/data/settings";
 import { getMenu } from "@/lib/data/menu";
-import { formatPrice } from "@/lib/format";
+import { FeaturedItems } from "./_components/FeaturedItems";
 
 // Render per-request rather than statically: static generation would need a
 // live database connection at `next build` time (e.g. in the Docker build
@@ -14,7 +14,15 @@ export default async function HomePage() {
   const featuredItems = categories
     .flatMap((category) => category.items)
     .filter((item) => item.isAvailable)
-    .slice(0, 3);
+    .slice(0, 3)
+    .map((item) => ({
+      id: item.id,
+      name: item.name,
+      description: item.description,
+      price: Number(item.price),
+      imageUrl: item.imageUrl,
+      isAvailable: item.isAvailable,
+    }));
 
   return (
     <div>
@@ -49,28 +57,7 @@ export default async function HomePage() {
           <h2 className="font-display text-2xl font-semibold text-foreground sm:text-3xl">
             A few favorites
           </h2>
-          <div className="mt-6 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-3">
-            {featuredItems.map((item) => (
-              <div
-                key={item.id}
-                className="overflow-hidden rounded-2xl border border-cafe-border bg-cafe-surface transition-shadow hover:shadow-md"
-              >
-                {item.imageUrl && (
-                  // eslint-disable-next-line @next/next/no-img-element -- runtime-served upload, not a build-time static asset
-                  <img src={item.imageUrl} alt="" className="aspect-square w-full object-cover" />
-                )}
-                <div className="p-3 sm:p-4">
-                  <h3 className="text-base font-semibold text-foreground sm:text-lg">{item.name}</h3>
-                  {item.description && (
-                    <p className="mt-1 line-clamp-2 text-sm text-cafe-muted">{item.description}</p>
-                  )}
-                  <p className="mt-2 text-base font-bold text-cafe-accent sm:text-lg">
-                    {formatPrice(item.price)}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <FeaturedItems items={featuredItems} />
         </section>
       )}
     </div>
