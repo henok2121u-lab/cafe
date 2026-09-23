@@ -11,7 +11,7 @@ export function CartButton() {
   return (
     <Link
       href="/cart"
-      className="fixed bottom-5 right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-cafe-primary text-cafe-primary-foreground shadow-lg transition-transform hover:scale-105"
+      className="fixed bottom-5 right-5 z-[60] flex h-14 w-14 items-center justify-center rounded-full bg-cafe-primary text-cafe-primary-foreground shadow-lg transition-transform hover:scale-105"
       aria-label={`View cart, ${count} item${count === 1 ? "" : "s"}`}
     >
       <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6" aria-hidden="true">
