@@ -6,6 +6,7 @@ const NAV_LINKS = [
   { href: "/admin/categories", label: "Categories" },
   { href: "/admin/menu-items", label: "Menu Items" },
   { href: "/admin/gallery", label: "Gallery" },
+  { href: "/admin/qr-code", label: "QR Code" },
   { href: "/admin/settings", label: "Settings" },
 ] as const;
 
