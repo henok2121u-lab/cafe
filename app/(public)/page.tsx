@@ -18,8 +18,9 @@ export default async function HomePage() {
 
   return (
     <div>
-      <section className="bg-cafe-primary text-cafe-primary-foreground">
-        <div className="mx-auto max-w-5xl px-4 py-16 text-center sm:px-6 sm:py-24">
+      <section className="relative overflow-hidden bg-cafe-primary text-cafe-primary-foreground">
+        <div className="bg-dot-pattern absolute inset-0 text-cafe-primary-foreground/30" />
+        <div className="relative mx-auto max-w-5xl px-4 py-16 text-center sm:px-6 sm:py-24">
           <h1 className="font-display text-4xl font-semibold tracking-tight sm:text-6xl">
             {settings.name}
           </h1>
